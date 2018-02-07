@@ -46,5 +46,5 @@ You can do that via terminal with:
 
   **apikey = "your key"**
 
-Or you can hardcode it here and here.
+Or you can hardcode it [here](https://github.com/NaelsonDouglas/BraziliexJuliaAPI/blob/master/src/braziliex.jl#L16) and [here](https://github.com/NaelsonDouglas/BraziliexJuliaAPI/blob/master/src/braziliex.jl#L17).
     
