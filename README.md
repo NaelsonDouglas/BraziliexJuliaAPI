@@ -2,7 +2,7 @@
 
 This code implements a the [Braziliex exchange API](https://braziliex.com/exchange/api.php) in Julia.
 
-The code was tested in Julia 5.2 and it relies in 3 basic packages.
+The code was tested in [Julia 5.2](https://julialang.org/downloads/oldreleases.html) and it relies in 3 basic packages.
 The code itself install them by the way.
 
 | Package   |      Version      |
@@ -47,4 +47,10 @@ You can do that via terminal with:
   **apikey = "your key"**
 
 Or you can hardcode it [here](https://github.com/NaelsonDouglas/BraziliexJuliaAPI/blob/master/src/braziliex.jl#L16) and [here](https://github.com/NaelsonDouglas/BraziliexJuliaAPI/blob/master/src/braziliex.jl#L17).
+
+## Usage
+To use you just need to open Julia via terminal and call the command
+include("...src/braziliex.jl")
+
+
     
