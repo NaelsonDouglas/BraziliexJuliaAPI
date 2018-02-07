@@ -83,7 +83,7 @@ function privaterequest(command::String;secret::String=apisecret, key::String=ap
 	if (secret == "empty")
 		print_with_color(:red,"========================================================================\n")		
 		print_with_color(:blue,"            YOU NEED TO SET YOUR API KEY AND API SECRET.\n")		
-		print_with_color(:blue,"           you can check how to to it by calling documentation().\n")
+		print_with_color(:blue,"           you can check how to do it by calling documentation().\n")
 		print_with_color(:red,"========================================================================\n")		
 	end
 end
