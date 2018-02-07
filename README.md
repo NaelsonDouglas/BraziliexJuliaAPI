@@ -3,7 +3,7 @@
 This code implements a the [Braziliex exchange API](https://braziliex.com/exchange/api.php) in Julia.
 
 The code was tested in [Julia 5.2](https://julialang.org/downloads/oldreleases.html) and it relies in 3 basic packages.
-The code itself install them by the way.
+The code itself installs them by the way.
 
 | Package   |      Version      |
 |----------|:-------------:|
