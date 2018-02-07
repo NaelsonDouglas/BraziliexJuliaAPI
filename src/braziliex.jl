@@ -1,6 +1,6 @@
-#Pkg.add("Nettle")
-#Pkg.add("HTTP")
-#Pkg.add("JSON")
+Pkg.add("Nettle")
+Pkg.add("HTTP")
+Pkg.add("JSON")
 
 
 using Nettle
