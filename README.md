@@ -42,9 +42,7 @@ They can be found [here](https://braziliex.com/exchange/api_key.php)
 Then you must set your keys on the code.
 You can do that via terminal with:
 
-  **apisecret = "your secret"**
+ braziliexsetauth("your_key","your_secret")
 
-  **apikey = "your key"**
 
-Or you can hardcode it here and here.
     
