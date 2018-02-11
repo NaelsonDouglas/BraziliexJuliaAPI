@@ -102,13 +102,39 @@ module Braziliex
 			print_with_color(:red,"========================================================================\n")		
 			return void
 		else
+			println("POST MESSAGE: ",bodydata,"\n")
 			return JSON.parse(String(HTTP.post(privateurl,headers=headersdata,body=bodydata)))
 		end
 	end
 
 	function balance()
-		privaterequest("balance")
+		try
+			return privaterequest("balance")["balance"]
+		catch
+			return 0.0
+		end
 	end
+
+	function balance(currency::String)
+		bl = balance()
+		blfloat = 0.0
+		
+		try
+			blfloat = parse(bl[currency])
+		catch
+			println("No ",currency," on your account")
+			return 0.0
+		end
+
+		if (currency == "brl")
+			return round(blfloat,2)
+		else
+			return blfloat
+		end
+	end
+
+
+
 
 	function complete_balance()
 		privaterequest("complete_balance")
@@ -140,7 +166,9 @@ module Braziliex
 		prc = string("price=",price,"&")
 		mkt = string("market=",market)
 		command = string(cmd,amt,prc,mkt)	
-		privaterequest(command)
+		x = privaterequest(command)
+
+		print(x)
 	end
 
 	#when using it, you must call buy(1.0,1.0,market). Never forget the dot after the number. For julia "1" is an integer and 1.0 is a float. If you put an integer, the function call will bug
@@ -150,10 +178,11 @@ module Braziliex
 		prc = string("price=",price,"&")
 		mkt = string("market=",market)
 		command = string(cmd,amt,prc,mkt)	
-		privaterequest(command)
+		x = privaterequest(command)
+		print(x)
 	end
 
-	function cancellorder(order_number::Float64, market::String)
+	function cancellorder(order_number::String, market::String)
 		cmd = "cancel_order&"
 		order_number = string("order_number=",order_number,"&")
 		mkt = string("market=",market)
@@ -184,6 +213,23 @@ module Braziliex
 		request = string("tradehistory/",market)
 		publicrequest(request)
 	end
+
+
+
+	#============PLUS FUNCTIONS===============#
+
+function cancellorders(market::String)
+	confirmations = Dict{String, String}()
+	for x in Braziliex.openorders(market)["order_open"]
+		number = x["order_number"]		
+		conf =Braziliex.cancellorder(number, market)
+		if conf["success"] == 1
+			confirmations[number] = "canceled"
+		end
+		
+	end
+	return confirmations
+end
 
 
 
